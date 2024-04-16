@@ -23,7 +23,7 @@ app.get("/pokemon/:name([A-Za-z]+)", (req,res,next) =>{
     const name = req.params.name;
 
     const pk = pokemon.filter((p) => {
-        return (p.name.toUpperCase() == name.toUpperCase()) ? p : null;
+        return (p.name.toUpperCase() == name.toUpperCase()) && p;
     });
 
     (pk.length>0) ? res.status(200).send(pk) : res.status(404).send("Pokemon no encontrado");
