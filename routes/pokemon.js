@@ -1,16 +1,16 @@
-const express = require('express')
-const pokemon = express.Router()
+const express = require('express');
+const pokemon = express.Router();
 const db = require('../config/database');
 
 pokemon.post("/", (req,res,next) => {
-return res.status(200).send(req.body)
-})
+    return res.status(200).send(req.body)
+});
 
-pokemon.get("/", async (req,res,next)=>{
+pokemon.get('/', async (req,res,next)=>{
     const pkmn = await db.query("SELECT * FROM pokemon");
     console.log(pkmn);
-    return res.status(200).send("ola")
-})
+    return res.status(200).send("hola");
+});
 
 pokemon.get("/:id([0-9]{1,3})", (req,res,next)=>{
     const id = req.params.id -1;
