@@ -2,6 +2,7 @@ const express = require('express')
 const app = express();
 const morgan = require('morgan')
 const pokemon =require("./routes/pokemon")
+const user = require("./routes/user")
 
 app.use(morgan('dev'));
 app.use(express.json());
@@ -12,6 +13,8 @@ app.get("/", (req,res,next)=>{
 })
 
 app.use("/pokemon", pokemon)
+app.use("/user", require("./routes/user"))
+
 
 app.use((req, res, next) => {
     return res.status(404).send({code:404, message: "URL not fo und"})
