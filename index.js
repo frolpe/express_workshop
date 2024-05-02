@@ -1,24 +1,26 @@
+//dependencies
 const express = require('express')
 const app = express();
 const morgan = require('morgan')
+
+//routes
 const pokemon =require("./routes/pokemon")
 const user = require("./routes/user")
+
+//middleware
+const index = require("./routes/index")
+const auth = require("./middleware/auth")
+const notFound = require('./middleware/notfound')
 
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-app.get("/", (req,res,next)=>{
-    res.status(200).json({code: 1, message: "Bienvenido al Pokedex"})
-})
-
-app.use("/pokemon", pokemon)
+app.get("/", index)
 app.use("/user", require("./routes/user"))
-
-
-app.use((req, res, next) => {
-    return res.status(404).send({code:404, message: "URL not fo und"})
-})
+app.use(auth)
+app.use("/pokemon", pokemon)
+app.use(notFound)
 
 app.listen(process.env.PORT || 3000,  () => {
     console.log("server is running...")
