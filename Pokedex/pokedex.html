@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokedex</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./js/pokedex.js"></script>
+    <style>
+        *{
+            font-family: sans-serif;
+        }
+        body{
+            margin: 0;
+            background-color: #F2F4F4;
+        }
+        h1{
+            text-align: center;
+            margin: 6rem;
+        }
+        .contenedor{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+        .contenedor .imagen img{
+            width: 100px;
+            height: 100px;
+            transition: transform .3s ease-in-out;
+        }
+        .contenedor .imagen .cajita-texto{
+            background-color: #AEB6BF;
+            text-align: center;
+            color: black;
+            border-radius: 10px;
+            width: 90px;
+            padding: 10px 5px;
+            display: none;
+        }
+        .contenedor .imagen:hover .cajita-texto{
+            display: block;
+            transform: translateY(-170px);
+        }
+        .contenedor .imagen:hover img{
+            transform: translateY(-20px);
+        }
+
+        a:hover{
+            color: #634e83;
+            transition: 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bienvenido al Pokedex</h1>
+    <div class="contenedor">
+        <div class="imagen">
+            <img src="img/donatello.png" alt="">
+            <span class="cajita-texto">
+                <span class="texto">
+                    Donatello
+                </span>
+            </span>
+        </div>
+        <div class="imagen">
+            <img src="img/leonardo.png" alt="">
+            <span class="cajita-texto">
+                <span class="texto">
+                    Leonardo
+                </span>
+            </span>
+        </div>
+        <div class="imagen">
+            <img src="img/splinter.png" alt="">
+            <span class="cajita-texto">
+                <span class="texto">
+                    Splinter
+                </span>
+            </span>
+        </div>
+        <div class="imagen">
+            <img src="img/michaelangelo.png" alt="">
+            <span class="cajita-texto">
+                <span class="texto">
+                    Michael
+                </span>
+            </span>
+        </div>
+        <div class="imagen">
+            <img src="img/raphael.png" alt="">
+            <span class="cajita-texto">
+                <span class="texto">
+                    Raphael
+                </span>
+            </span>
+        </div>
+    </div>
+
+</body>
+</html>
